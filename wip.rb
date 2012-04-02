@@ -15,9 +15,11 @@ class Wip < Formula
 
   def install
     ENV.x11
-    system './makewip -readline "" -pgplot "" -xlib /usr/X11R6/lib -linkopts "-Wl,-framework -Wl,Foundation -Wl,-bind_at_load -lpng -lz"'
+    inreplace 'makewip', '@PREFIX@', HOMEBREW_PREFIX
+    system './makewip -readline "" -pgplot "" -xlib /usr/X11R6/lib -linkopts "-Wl,-bind_at_load -lpng -lz"'
     bin.install ['wip']
     lib.install ['libwip.a']
+    doc.install ['wiphelp.dat']
   end
 
   def test
