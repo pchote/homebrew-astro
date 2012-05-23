@@ -9,6 +9,7 @@ class Wip < Formula
   def patches
     {:p1 => [
              "http://fink.cvs.sourceforge.net/fink/dists/10.4/stable/main/finkinfo/sci/wip.patch",
+             DATA
             ]
     }
   end
@@ -26,3 +27,18 @@ class Wip < Formula
     system "wip"
   end
 end
+
+__END__
+diff --git a/src/branch/wipmain.c b/src/branch/wipmain.c
+index aa2d1af..bb7f3fe 100644
+--- a/src/branch/wipmain.c
++++ b/src/branch/wipmain.c
+@@ -70,7 +70,7 @@ Const char *name;
+ }
+ 
+ #ifdef PROTOTYPE
+-void main(int argc, char *argv[])
++int main(int argc, char *argv[])
+ #else
+ void main(argc, argv)
+ int argc;
