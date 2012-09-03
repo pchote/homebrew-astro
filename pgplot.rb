@@ -12,6 +12,8 @@ class Pgplot < Formula
   md5 'e8a6e8d0d5ef9d1709dfb567724525ae'
   version '5.2.2'
 
+  depends_on :x11
+
   def patches
     {:p0 => [
              # from MacPorts: https://trac.macports.org/browser/trunk/dports/graphics/pgplot/files
@@ -23,7 +25,6 @@ class Pgplot < Formula
 
   def install
     ENV.deparallelize
-    ENV.x11
     ENV.fortran
     ENV.append 'CPPFLAGS', "-DPG_PPU"
 
