@@ -5,7 +5,10 @@ class Wip < Formula
   homepage 'http://bima.astro.umd.edu/wip'
   md5 '189c36b5f8079673b0a5060168bb6070'
   version '2.3'
+
   depends_on 'pchote/astro/pgplot'
+  depends_on :x11
+
   def patches
     {:p1 => [
              "http://fink.cvs.sourceforge.net/fink/dists/10.4/stable/main/finkinfo/sci/wip.patch",
@@ -15,9 +18,8 @@ class Wip < Formula
   end
 
   def install
-    ENV.x11
     inreplace 'makewip', '@PREFIX@', HOMEBREW_PREFIX
-    system './makewip -readline "" -pgplot "" -xlib /usr/X11R6/lib -linkopts "-Wl,-bind_at_load -lpng -lz"'
+    system './makewip -readline "" -pgplot "" -xlib {MacOS::X11.lib} -linkopts "-Wl,-bind_at_load -lpng -lz"'
     bin.install ['wip']
     lib.install ['libwip.a']
     doc.install ['wiphelp.dat']
