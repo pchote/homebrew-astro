@@ -3,7 +3,7 @@ require 'formula'
 class Wip < Formula
   url 'ftp://ftp.astro.umd.edu/progs/morgan/wip2p3.tar.gz'
   homepage 'http://bima.astro.umd.edu/wip'
-  sha1 'd4e776cdd7c3ea625ae1c1b2a1cf573118e60eb1'
+  sha256 'd4b7da8d171c7bc5d04664378006cce1c093584930fe3e969e9831b611335eef'
   version '2.3'
 
   depends_on 'pgplot'
