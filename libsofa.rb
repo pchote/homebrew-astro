@@ -1,13 +1,13 @@
 require 'formula'
 
 class Libsofa < Formula
-  url 'http://www.iausofa.org/2015_0209_C/sofa_c-20150209_a.tar.gz'
+  url 'http://www.iausofa.org/2016_0503_C/sofa_c-20160503_a.tar.gz'
   homepage 'http://www.iausofa.org/'
-  sha1 '03302dae4b3700f61044ba83cc4859db890c8c89'
-  version '20150209_a'
+  sha256 '260e222c8eaf484c6ea0e7f73fa99e8821d1b70adf4449951c7cc1ff10b4bc3b'
+  version '20150503_a'
 
   def install
-    cd '20150209_a/c/src' do
+    cd '20160503_a/c/src' do
       system "make"
       lib.install "libsofa_c.a"
       include.install "sofa.h"
